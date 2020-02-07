@@ -1,0 +1,10 @@
+C:\Users\Lassi\source\repos\VRP\VRP\bin\Debug\VRP.exe.config
+C:\Users\Lassi\source\repos\VRP\VRP\bin\Debug\VRP.exe
+C:\Users\Lassi\source\repos\VRP\VRP\bin\Debug\VRP.pdb
+C:\Users\Lassi\source\repos\VRP\VRP\obj\Debug\VRP.csprojAssemblyReference.cache
+C:\Users\Lassi\source\repos\VRP\VRP\obj\Debug\VRP.Properties.Resources.resources
+C:\Users\Lassi\source\repos\VRP\VRP\obj\Debug\VRP.csproj.GenerateResource.cache
+C:\Users\Lassi\source\repos\VRP\VRP\obj\Debug\VRP.exe
+C:\Users\Lassi\source\repos\VRP\VRP\obj\Debug\VRP.pdb
+C:\Users\Lassi\source\repos\VRP\VRP\obj\Debug\VRP.Vuokratut.resources
+C:\Users\Lassi\source\repos\VRP\VRP\obj\Debug\VRP.SplashScreem.resources
