@@ -14,7 +14,7 @@ namespace VRP
 {
     public partial class Vuokratut : Form
     {
-        SqlConnection sc = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\tämäkohtauudestaankokonaan;Integrated Security=True;Connect Timeout=30");
+        SqlConnection sc = new SqlConnection(@"Data Source=DESKTOP-L5AVSMU\SQLEXPRESS;Initial Catalog=tyovalineet;Integrated Security=True");
         public Vuokratut()
         {
             Thread t = new Thread(new ThreadStart(StartForm));
@@ -22,44 +22,44 @@ namespace VRP
             Thread.Sleep(2000);
             InitializeComponent();
             t.Abort();
-            panelVari.Height = buttonYksi.Height;
-            panelVari.Top = buttonYksi.Top;
+            panelVari.Height = buttonVuokratut.Height;
+            panelVari.Top = buttonVuokratut.Top;
             panelVari2.Hide();
             panelLisaaTyovaline.Hide();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
+            dataGridViewTyovalineet.Hide();
+            
 
         }
 
-        private void pictureBoxLogo_Click(object sender, EventArgs e)
-        {
-
-        }
         private void buttonLisaaTyokalu_Click(object sender, EventArgs e)
         {
             panelVari.Top = buttonLisaaTyokalu.Top;
             panelVari.Height = buttonLisaaTyokalu.Height;
             panelVari2.Show();
             panelLisaaTyovaline.Show();
+            buttonLisaa.Show();
+            dataGridViewTyovalineet.Hide();
+
+
+
+        }
+
+        private void buttonVuokratut_Click(object sender, EventArgs e)
+        {
+            panelVari.Height = buttonVuokratut.Height;
+            panelVari.Top = buttonVuokratut.Top;
+            panelVari2.Hide();
+            panelLisaaTyovaline.Hide();
+            buttonLisaa.Hide();
+            dataGridViewTyovalineet.Show();
+        }
+
+        private void buttonYliVK_Click(object sender, EventArgs e)
+        {
+            panelVari.Height = buttonYliVK.Height;
+            panelVari.Top = buttonYliVK.Top;
+            panelVari2.Hide();
             
-        }
-
-        private void buttonYksi_Click(object sender, EventArgs e)
-        {
-            panelVari.Height = buttonYksi.Height;
-            panelVari.Top = buttonYksi.Top;
-            panelVari2.Hide();
-            panelLisaaTyovaline.Hide();
-        }
-
-        private void buttonKaksi_Click(object sender, EventArgs e)
-        {
-            panelVari.Height = buttonKaksi.Height;
-            panelVari.Top = buttonKaksi.Top;
-            panelVari2.Hide();
-            panelLisaaTyovaline.Hide();
         }
 
         
@@ -76,7 +76,7 @@ namespace VRP
         private void buttonLisaa_Click(object sender, EventArgs e)
         {
             sc.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo.Table1](Tyovaline_nimi, Tyovaline_numero, Vuokraus_pvm, Vuokraus_firma) VALUES(@Name, @Number, @PVM, @Firm)", sc);
+            SqlCommand cmd = new SqlCommand("INSERT INTO tbl_tyovalineet(tyovaline_nimi, tyovaline_id, vuokraus_pvm, vuokraus_firma) VALUES(@Name, @Number, @PVM, @Firm)", sc);
             cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 50).Value = textBoxTyovaline.Text;
             cmd.Parameters.Add("@Number", SqlDbType.NVarChar, 50).Value = textBoxTyovalNumero.Text;
             cmd.Parameters.Add("@PVM", SqlDbType.NVarChar, 50).Value = textBoxVuokrauspvm.Text;
@@ -84,6 +84,13 @@ namespace VRP
             cmd.ExecuteNonQuery();
             MessageBox.Show("Työväline lisätty onnistuneesti");
             sc.Close();
+        }
+
+        private void Vuokratut_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'tyovalineetDataSet.tbl_tyovalineet' table. You can move, or remove it, as needed.
+            this.tbl_tyovalineetTableAdapter.Fill(this.tyovalineetDataSet.tbl_tyovalineet);
+
         }
     }
 }

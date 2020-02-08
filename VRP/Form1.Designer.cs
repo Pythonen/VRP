@@ -28,29 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Button buttonPoistu;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vuokratut));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.panelVari2 = new System.Windows.Forms.Panel();
             this.buttonLisaaTyokalu = new System.Windows.Forms.Button();
             this.panelVari = new System.Windows.Forms.Panel();
-            this.buttonKaksi = new System.Windows.Forms.Button();
-            this.buttonYksi = new System.Windows.Forms.Button();
+            this.buttonYliVK = new System.Windows.Forms.Button();
+            this.buttonVuokratut = new System.Windows.Forms.Button();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelLisaaTyovaline = new System.Windows.Forms.Panel();
-            this.labelTyovaline = new System.Windows.Forms.Label();
-            this.labelValineID = new System.Windows.Forms.Label();
-            this.labelPVM = new System.Windows.Forms.Label();
-            this.labelFirma = new System.Windows.Forms.Label();
-            this.textBoxFirma = new System.Windows.Forms.TextBox();
-            this.textBoxVuokrauspvm = new System.Windows.Forms.TextBox();
-            this.textBoxTyovalNumero = new System.Windows.Forms.TextBox();
-            this.textBoxTyovaline = new System.Windows.Forms.TextBox();
+            this.dataGridViewTyovalineet = new System.Windows.Forms.DataGridView();
+            this.tyovalinenimiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tyovalineidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vuokrauspvmDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vuokrausfirmaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbltyovalineetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tyovalineetDataSet = new VRP.tyovalineetDataSet();
             this.buttonLisaa = new System.Windows.Forms.Button();
+            this.textBoxTyovaline = new System.Windows.Forms.TextBox();
+            this.textBoxTyovalNumero = new System.Windows.Forms.TextBox();
+            this.textBoxVuokrauspvm = new System.Windows.Forms.TextBox();
+            this.textBoxFirma = new System.Windows.Forms.TextBox();
+            this.labelFirma = new System.Windows.Forms.Label();
+            this.labelPVM = new System.Windows.Forms.Label();
+            this.labelValineID = new System.Windows.Forms.Label();
+            this.labelTyovaline = new System.Windows.Forms.Label();
+            this.tbl_tyovalineetTableAdapter = new VRP.tyovalineetDataSetTableAdapters.tbl_tyovalineetTableAdapter();
             buttonPoistu = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panelLisaaTyovaline.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTyovalineet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbltyovalineetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tyovalineetDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonPoistu
@@ -72,8 +88,8 @@
             this.panelSideMenu.Controls.Add(this.panelVari2);
             this.panelSideMenu.Controls.Add(this.buttonLisaaTyokalu);
             this.panelSideMenu.Controls.Add(this.panelVari);
-            this.panelSideMenu.Controls.Add(this.buttonKaksi);
-            this.panelSideMenu.Controls.Add(this.buttonYksi);
+            this.panelSideMenu.Controls.Add(this.buttonYliVK);
+            this.panelSideMenu.Controls.Add(this.buttonVuokratut);
             this.panelSideMenu.Controls.Add(this.pictureBoxLogo);
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
@@ -114,38 +130,38 @@
             this.panelVari.Size = new System.Drawing.Size(7, 97);
             this.panelVari.TabIndex = 4;
             // 
-            // buttonKaksi
+            // buttonYliVK
             // 
-            this.buttonKaksi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonKaksi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonKaksi.FlatAppearance.BorderSize = 0;
-            this.buttonKaksi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonKaksi.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKaksi.Image = global::VRP.Properties.Resources.clock;
-            this.buttonKaksi.Location = new System.Drawing.Point(0, 197);
-            this.buttonKaksi.Name = "buttonKaksi";
-            this.buttonKaksi.Size = new System.Drawing.Size(200, 97);
-            this.buttonKaksi.TabIndex = 2;
-            this.buttonKaksi.Text = "YLI VIIKON VANHAT VUOKRAUKSET";
-            this.buttonKaksi.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonKaksi.UseVisualStyleBackColor = true;
-            this.buttonKaksi.Click += new System.EventHandler(this.buttonKaksi_Click);
+            this.buttonYliVK.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonYliVK.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonYliVK.FlatAppearance.BorderSize = 0;
+            this.buttonYliVK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonYliVK.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonYliVK.Image = global::VRP.Properties.Resources.clock;
+            this.buttonYliVK.Location = new System.Drawing.Point(0, 197);
+            this.buttonYliVK.Name = "buttonYliVK";
+            this.buttonYliVK.Size = new System.Drawing.Size(200, 97);
+            this.buttonYliVK.TabIndex = 2;
+            this.buttonYliVK.Text = "YLI VIIKON VANHAT VUOKRAUKSET";
+            this.buttonYliVK.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonYliVK.UseVisualStyleBackColor = true;
+            this.buttonYliVK.Click += new System.EventHandler(this.buttonYliVK_Click);
             // 
-            // buttonYksi
+            // buttonVuokratut
             // 
-            this.buttonYksi.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonYksi.FlatAppearance.BorderSize = 0;
-            this.buttonYksi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonYksi.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonYksi.Image = global::VRP.Properties.Resources.tools_cross_settings_symbol_for_interface__1_;
-            this.buttonYksi.Location = new System.Drawing.Point(0, 100);
-            this.buttonYksi.Name = "buttonYksi";
-            this.buttonYksi.Size = new System.Drawing.Size(200, 97);
-            this.buttonYksi.TabIndex = 1;
-            this.buttonYksi.Text = "VUOKRATUT";
-            this.buttonYksi.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.buttonYksi.UseVisualStyleBackColor = true;
-            this.buttonYksi.Click += new System.EventHandler(this.buttonYksi_Click);
+            this.buttonVuokratut.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonVuokratut.FlatAppearance.BorderSize = 0;
+            this.buttonVuokratut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonVuokratut.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonVuokratut.Image = global::VRP.Properties.Resources.tools_cross_settings_symbol_for_interface__1_;
+            this.buttonVuokratut.Location = new System.Drawing.Point(0, 100);
+            this.buttonVuokratut.Name = "buttonVuokratut";
+            this.buttonVuokratut.Size = new System.Drawing.Size(200, 97);
+            this.buttonVuokratut.TabIndex = 1;
+            this.buttonVuokratut.Text = "VUOKRATUT";
+            this.buttonVuokratut.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonVuokratut.UseVisualStyleBackColor = true;
+            this.buttonVuokratut.Click += new System.EventHandler(this.buttonVuokratut_Click);
             // 
             // pictureBoxLogo
             // 
@@ -158,10 +174,10 @@
             this.pictureBoxLogo.Size = new System.Drawing.Size(200, 100);
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
-            this.pictureBoxLogo.Click += new System.EventHandler(this.pictureBoxLogo_Click);
             // 
             // panelLisaaTyovaline
             // 
+            this.panelLisaaTyovaline.Controls.Add(this.dataGridViewTyovalineet);
             this.panelLisaaTyovaline.Controls.Add(this.buttonLisaa);
             this.panelLisaaTyovaline.Controls.Add(this.textBoxTyovaline);
             this.panelLisaaTyovaline.Controls.Add(this.textBoxTyovalNumero);
@@ -176,73 +192,89 @@
             this.panelLisaaTyovaline.Size = new System.Drawing.Size(592, 481);
             this.panelLisaaTyovaline.TabIndex = 2;
             // 
-            // labelTyovaline
+            // dataGridViewTyovalineet
             // 
-            this.labelTyovaline.AutoSize = true;
-            this.labelTyovaline.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTyovaline.Location = new System.Drawing.Point(59, 53);
-            this.labelTyovaline.Name = "labelTyovaline";
-            this.labelTyovaline.Size = new System.Drawing.Size(78, 23);
-            this.labelTyovaline.TabIndex = 0;
-            this.labelTyovaline.Text = "Työväline";
+            this.dataGridViewTyovalineet.AccessibleDescription = "tyovalineet";
+            this.dataGridViewTyovalineet.AccessibleName = "tyovalineet";
+            this.dataGridViewTyovalineet.AllowDrop = true;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridViewTyovalineet.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewTyovalineet.AutoGenerateColumns = false;
+            this.dataGridViewTyovalineet.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewTyovalineet.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewTyovalineet.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewTyovalineet.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dataGridViewTyovalineet.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
+            this.dataGridViewTyovalineet.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTyovalineet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTyovalineet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTyovalineet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tyovalinenimiDataGridViewTextBoxColumn,
+            this.tyovalineidDataGridViewTextBoxColumn,
+            this.vuokrauspvmDataGridViewTextBoxColumn,
+            this.vuokrausfirmaDataGridViewTextBoxColumn});
+            this.dataGridViewTyovalineet.DataSource = this.tbltyovalineetBindingSource;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTyovalineet.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewTyovalineet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewTyovalineet.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewTyovalineet.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewTyovalineet.Name = "dataGridViewTyovalineet";
+            this.dataGridViewTyovalineet.Size = new System.Drawing.Size(592, 481);
+            this.dataGridViewTyovalineet.TabIndex = 3;
+            this.dataGridViewTyovalineet.VirtualMode = true;
             // 
-            // labelValineID
+            // tyovalinenimiDataGridViewTextBoxColumn
             // 
-            this.labelValineID.AutoSize = true;
-            this.labelValineID.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValineID.Location = new System.Drawing.Point(59, 150);
-            this.labelValineID.Name = "labelValineID";
-            this.labelValineID.Size = new System.Drawing.Size(157, 23);
-            this.labelValineID.TabIndex = 1;
-            this.labelValineID.Text = "Työvälineen numero";
+            this.tyovalinenimiDataGridViewTextBoxColumn.DataPropertyName = "tyovaline_nimi";
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tyovalinenimiDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.tyovalinenimiDataGridViewTextBoxColumn.HeaderText = "Työväline";
+            this.tyovalinenimiDataGridViewTextBoxColumn.Name = "tyovalinenimiDataGridViewTextBoxColumn";
             // 
-            // labelPVM
+            // tyovalineidDataGridViewTextBoxColumn
             // 
-            this.labelPVM.AutoSize = true;
-            this.labelPVM.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPVM.Location = new System.Drawing.Point(59, 247);
-            this.labelPVM.Name = "labelPVM";
-            this.labelPVM.Size = new System.Drawing.Size(118, 23);
-            this.labelPVM.TabIndex = 2;
-            this.labelPVM.Text = "Vuorkaus pvm.";
+            this.tyovalineidDataGridViewTextBoxColumn.DataPropertyName = "tyovaline_id";
+            this.tyovalineidDataGridViewTextBoxColumn.HeaderText = "Työvälineen tunniste numero";
+            this.tyovalineidDataGridViewTextBoxColumn.Name = "tyovalineidDataGridViewTextBoxColumn";
             // 
-            // labelFirma
+            // vuokrauspvmDataGridViewTextBoxColumn
             // 
-            this.labelFirma.AutoSize = true;
-            this.labelFirma.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFirma.Location = new System.Drawing.Point(60, 331);
-            this.labelFirma.Name = "labelFirma";
-            this.labelFirma.Size = new System.Drawing.Size(122, 23);
-            this.labelFirma.TabIndex = 3;
-            this.labelFirma.Text = "Vuokraus firma";
+            this.vuokrauspvmDataGridViewTextBoxColumn.DataPropertyName = "vuokraus_pvm";
+            this.vuokrauspvmDataGridViewTextBoxColumn.HeaderText = "Vuokraus pvm.";
+            this.vuokrauspvmDataGridViewTextBoxColumn.Name = "vuokrauspvmDataGridViewTextBoxColumn";
             // 
-            // textBoxFirma
+            // vuokrausfirmaDataGridViewTextBoxColumn
             // 
-            this.textBoxFirma.Location = new System.Drawing.Point(387, 336);
-            this.textBoxFirma.Name = "textBoxFirma";
-            this.textBoxFirma.Size = new System.Drawing.Size(150, 20);
-            this.textBoxFirma.TabIndex = 4;
+            this.vuokrausfirmaDataGridViewTextBoxColumn.DataPropertyName = "vuokraus_firma";
+            this.vuokrausfirmaDataGridViewTextBoxColumn.HeaderText = "Vuokraus firma";
+            this.vuokrausfirmaDataGridViewTextBoxColumn.Name = "vuokrausfirmaDataGridViewTextBoxColumn";
             // 
-            // textBoxVuokrauspvm
+            // tbltyovalineetBindingSource
             // 
-            this.textBoxVuokrauspvm.Location = new System.Drawing.Point(387, 252);
-            this.textBoxVuokrauspvm.Name = "textBoxVuokrauspvm";
-            this.textBoxVuokrauspvm.Size = new System.Drawing.Size(150, 20);
-            this.textBoxVuokrauspvm.TabIndex = 5;
+            this.tbltyovalineetBindingSource.DataMember = "tbl_tyovalineet";
+            this.tbltyovalineetBindingSource.DataSource = this.tyovalineetDataSet;
             // 
-            // textBoxTyovalNumero
+            // tyovalineetDataSet
             // 
-            this.textBoxTyovalNumero.Location = new System.Drawing.Point(387, 153);
-            this.textBoxTyovalNumero.Name = "textBoxTyovalNumero";
-            this.textBoxTyovalNumero.Size = new System.Drawing.Size(150, 20);
-            this.textBoxTyovalNumero.TabIndex = 6;
-            // 
-            // textBoxTyovaline
-            // 
-            this.textBoxTyovaline.Location = new System.Drawing.Point(387, 58);
-            this.textBoxTyovaline.Name = "textBoxTyovaline";
-            this.textBoxTyovaline.Size = new System.Drawing.Size(150, 20);
-            this.textBoxTyovaline.TabIndex = 7;
+            this.tyovalineetDataSet.DataSetName = "tyovalineetDataSet";
+            this.tyovalineetDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // buttonLisaa
             // 
@@ -258,6 +290,78 @@
             this.buttonLisaa.UseVisualStyleBackColor = true;
             this.buttonLisaa.Click += new System.EventHandler(this.buttonLisaa_Click);
             // 
+            // textBoxTyovaline
+            // 
+            this.textBoxTyovaline.Location = new System.Drawing.Point(387, 58);
+            this.textBoxTyovaline.Name = "textBoxTyovaline";
+            this.textBoxTyovaline.Size = new System.Drawing.Size(150, 20);
+            this.textBoxTyovaline.TabIndex = 7;
+            // 
+            // textBoxTyovalNumero
+            // 
+            this.textBoxTyovalNumero.Location = new System.Drawing.Point(387, 153);
+            this.textBoxTyovalNumero.Name = "textBoxTyovalNumero";
+            this.textBoxTyovalNumero.Size = new System.Drawing.Size(150, 20);
+            this.textBoxTyovalNumero.TabIndex = 6;
+            // 
+            // textBoxVuokrauspvm
+            // 
+            this.textBoxVuokrauspvm.Location = new System.Drawing.Point(387, 252);
+            this.textBoxVuokrauspvm.Name = "textBoxVuokrauspvm";
+            this.textBoxVuokrauspvm.Size = new System.Drawing.Size(150, 20);
+            this.textBoxVuokrauspvm.TabIndex = 5;
+            // 
+            // textBoxFirma
+            // 
+            this.textBoxFirma.Location = new System.Drawing.Point(387, 336);
+            this.textBoxFirma.Name = "textBoxFirma";
+            this.textBoxFirma.Size = new System.Drawing.Size(150, 20);
+            this.textBoxFirma.TabIndex = 4;
+            // 
+            // labelFirma
+            // 
+            this.labelFirma.AutoSize = true;
+            this.labelFirma.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFirma.Location = new System.Drawing.Point(60, 331);
+            this.labelFirma.Name = "labelFirma";
+            this.labelFirma.Size = new System.Drawing.Size(122, 23);
+            this.labelFirma.TabIndex = 3;
+            this.labelFirma.Text = "Vuokraus firma";
+            // 
+            // labelPVM
+            // 
+            this.labelPVM.AutoSize = true;
+            this.labelPVM.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPVM.Location = new System.Drawing.Point(59, 247);
+            this.labelPVM.Name = "labelPVM";
+            this.labelPVM.Size = new System.Drawing.Size(118, 23);
+            this.labelPVM.TabIndex = 2;
+            this.labelPVM.Text = "Vuokraus pvm.";
+            // 
+            // labelValineID
+            // 
+            this.labelValineID.AutoSize = true;
+            this.labelValineID.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValineID.Location = new System.Drawing.Point(59, 150);
+            this.labelValineID.Name = "labelValineID";
+            this.labelValineID.Size = new System.Drawing.Size(157, 23);
+            this.labelValineID.TabIndex = 1;
+            this.labelValineID.Text = "Työvälineen numero";
+            // 
+            // labelTyovaline
+            // 
+            this.labelTyovaline.AutoSize = true;
+            this.labelTyovaline.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTyovaline.Location = new System.Drawing.Point(59, 53);
+            this.labelTyovaline.Name = "labelTyovaline";
+            this.labelTyovaline.Size = new System.Drawing.Size(78, 23);
+            this.labelTyovaline.TabIndex = 0;
+            this.labelTyovaline.Text = "Työväline";
+            // 
+            // tbl_tyovalineetTableAdapter
+            // 
+            this.tbl_tyovalineetTableAdapter.ClearBeforeFill = true;
+            // 
             // Vuokratut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -268,11 +372,16 @@
             this.Controls.Add(this.panelSideMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Vuokratut";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vuokratut";
+            this.Load += new System.EventHandler(this.Vuokratut_Load);
             this.panelSideMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panelLisaaTyovaline.ResumeLayout(false);
             this.panelLisaaTyovaline.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTyovalineet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbltyovalineetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tyovalineetDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -281,9 +390,9 @@
 
         private System.Windows.Forms.Panel panelSideMenu;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
-        private System.Windows.Forms.Button buttonYksi;
+        private System.Windows.Forms.Button buttonVuokratut;
         private System.Windows.Forms.Panel panelVari;
-        private System.Windows.Forms.Button buttonKaksi;
+        private System.Windows.Forms.Button buttonYliVK;
         private System.Windows.Forms.Button buttonLisaaTyokalu;
         private System.Windows.Forms.Panel panelVari2;
         private System.Windows.Forms.Panel panelLisaaTyovaline;
@@ -296,6 +405,14 @@
         private System.Windows.Forms.Label labelValineID;
         private System.Windows.Forms.Label labelTyovaline;
         private System.Windows.Forms.Button buttonLisaa;
+        private tyovalineetDataSet tyovalineetDataSet;
+        private System.Windows.Forms.BindingSource tbltyovalineetBindingSource;
+        private tyovalineetDataSetTableAdapters.tbl_tyovalineetTableAdapter tbl_tyovalineetTableAdapter;
+        public System.Windows.Forms.DataGridView dataGridViewTyovalineet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tyovalinenimiDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tyovalineidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vuokrauspvmDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vuokrausfirmaDataGridViewTextBoxColumn;
     }
 }
 
